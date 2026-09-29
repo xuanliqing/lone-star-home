@@ -1,0 +1,31 @@
+/* Reuse the existing paper/dark palette for website editing. */
+.featured-slot{position:relative;min-width:0;min-height:0}
+.featured-slot .featured-link{height:100%}
+.featured-slot .featured-link strong{max-width:calc(100% - 25px)}
+.edit-featured{position:absolute;top:7px;right:7px;z-index:3;display:grid;place-items:center;width:28px;height:28px;padding:0;background:var(--paper-bright);color:var(--ink);border:1px solid var(--orange);font-size:18px;opacity:.6;cursor:pointer}
+.featured-slot:hover .edit-featured,.edit-featured:focus-visible{opacity:1}
+.edit-featured:focus-visible,.website-settings-button:focus-visible,.site-entry:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.shortcut-card .tile-label{display:flex;align-items:center;max-width:calc(100% - 145px)}
+.tile-label-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shortcut-card .tile-label i{flex-shrink:0}
+.left-mini [data-service-name],.left-mini [data-service-label]{max-width:118px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.website-settings-button,.site-entry{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;background:transparent;color:inherit;border:1px solid var(--muted);padding:14px 16px;cursor:pointer;font-size:15px}
+.website-settings-button small,.site-entry small{display:block;margin-top:5px;font-size:12px;line-height:1.5;font-weight:400;color:inherit;opacity:.8}
+.site-entry-list{display:grid;gap:8px}
+.site-entry>span:first-child,.website-settings-button>span:first-child{min-width:0;overflow-wrap:anywhere}
+.site-entry b{font-weight:600}
+.site-edit-label{flex-shrink:0;font-size:13px;color:var(--orange)}
+.website-settings-button:hover,.site-entry:hover{border-color:var(--orange);background:color-mix(in srgb,var(--orange) 8%,transparent)}
+body[data-background=night] .edit-featured{background:var(--night-raised);color:var(--night-ivory)}
+@media(min-width:901px),(orientation:landscape){
+ /* Keyboard focus must not scroll the clipped, perspective-projected stage. */
+ #viewport{overflow:clip}
+}
+@media(max-width:900px) and (orientation:portrait){
+ .featured-slot .featured-link strong{font-size:21px;max-width:calc(100% - 24px)}
+ .edit-featured{top:3px;right:3px;width:28px;height:28px;opacity:1;font-size:17px}
+ .shortcut-card .tile-label{max-width:calc(100% - 70px)}
+ .website-settings-button,.site-entry{padding:12px;gap:10px}
+ .site-entry small{font-size:11px}
+ #link-form .form-actions{gap:10px}
+}

@@ -3,7 +3,7 @@
   "name": "孤星 · 新的一页",
   "short_name": "孤星主页",
   "description": "天文台主题新标签页：阿米娅动态立绘、自动昼夜、搜索、网站收藏、专注计时、待办、便签与天气。",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efe7d6"><meta name="description" content="孤星浏览器主页。搜索、常用网站、专注计时、待办与随手记。"><title>孤星</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f3ebda'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23db7f49' stroke-width='8' stroke-dasharray='104 28'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23db7f49'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="materials.css"><link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="night.css"><link rel="stylesheet" href="optics.css"><link rel="stylesheet" href="assistant.css"><script src="vendor/spine-webgl.js" defer></script><script src="assistant-scene.js" defer></script><script src="assistant.js" defer></script><script src="app.js" defer></script>
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="materials.css"><link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="night.css"><link rel="stylesheet" href="optics.css"><link rel="stylesheet" href="assistant.css"><link rel="stylesheet" href="custom-links.css"><script src="vendor/spine-webgl.js" defer></script><script src="assistant-scene.js" defer></script><script src="assistant.js" defer></script><script src="app.js" defer></script>
 </head>
 <body data-background="day">
 <svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -158,7 +158,7 @@
 <nav class="quick-menu" aria-label="主页菜单">
  <button data-open="settings" aria-label="主页设置" title="设置"><svg viewBox="0 0 64 64"><path fill="currentColor" d="m27 3-3 8-8 4-9-1-5 10 6 7-1 9-5 6 7 9 9-2 7 4 3 8h11l3-8 8-4 8 1 5-10-6-7 1-9 5-6-7-9-8 2-8-4-2-8z"/><circle cx="32" cy="33" r="12" fill="#6e777b"/></svg></button>
  <button data-open="help" aria-label="使用指南" title="使用指南"><svg viewBox="0 0 64 64"><path d="M32 3 62 57H2z" fill="currentColor"/><path d="M30 21h5v20h-5zm0 26h5v5h-5z" fill="#69747c"/></svg></button>
- <a class="service-link" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌邮箱 Gmail" title="谷歌邮箱 · Gmail"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M2 11h60v44H2z" fill="currentColor"/><path d="m7 16 25 19 25-19" fill="none" stroke="#69747c" stroke-width="4"/></svg></a>
+ <a class="service-link" data-service-id="mail" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌邮箱 Gmail" title="谷歌邮箱 · Gmail"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M2 11h60v44H2z" fill="currentColor"/><path d="m7 16 25 19 25-19" fill="none" stroke="#69747c" stroke-width="4"/></svg></a>
  <button data-open="todos" aria-label="今日待办" title="今日待办"><svg viewBox="0 0 64 64"><path d="M5 12h54v46H5zM17 6v13m30-13v13M5 25h54" fill="none" stroke="currentColor" stroke-width="5"/><path d="M15 34h7m7 0h7m7 0h7M15 45h7m7 0h7m7 0h7" stroke="currentColor" stroke-width="6"/></svg></button>
 </nav>
 <button class="daily-tab" data-open="todos"><span>☑</span><span>新的一页<br>今日计划</span></button>
@@ -166,7 +166,7 @@
 <div class="scene-controls"><button data-action="hide-interface" aria-label="欣赏背景" title="欣赏背景">◉</button><button data-action="background" aria-label="切换昼夜背景" title="切换昼夜背景">⟳</button></div>
 <section class="notes-dock" aria-label="随手记"><div class="note-ribbon">QUICK NOTE</div><textarea id="note" rows="2" maxlength="12000" placeholder="记下一闪而过的想法，博士。" aria-label="随手记内容" spellcheck="false"></textarea><div class="notes-bottom"><span id="note-status" role="status">仅保存在此设备</span><span id="note-count">0 / 12000</span><button data-action="copy-note" aria-label="复制便签">复制 ↗</button></div></section>
 <button class="scenery-card" data-action="background" aria-label="切换主页场景"><span class="breaking">DAILY DEPARTURE</span><span class="scenery-title">LONE<br>STAR</span><span class="scenery-bar" id="scene-title">天光 / OBSERVATORY</span></button>
-<button class="left-mini paper" data-open="help"><svg aria-hidden="true"><use href="#i-squad" data-theme-icon="squad"/></svg><b>Guide</b><span>指南</span></button><a class="left-mini dark-paper archives service-link" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌翻译 Google Translate" title="谷歌翻译"><svg aria-hidden="true"><use href="#i-book" data-theme-icon="book"/></svg><b>Translate</b><span>谷歌翻译</span></a>
+<button class="left-mini paper" data-open="help"><svg aria-hidden="true"><use href="#i-squad" data-theme-icon="squad"/></svg><b>Guide</b><span>指南</span></button><a class="left-mini dark-paper archives service-link" data-service-id="translate" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌翻译 Google Translate" title="谷歌翻译"><svg aria-hidden="true"><use href="#i-book" data-theme-icon="book"/></svg><b data-service-name>Translate</b><span data-service-label>谷歌翻译</span></a>
 </div>
 <section class="right-ui" aria-label="主页功能">
  <section class="terminal paper plane" data-plane="1216,146 2050,92 2050,354 1214,366" data-size="834,270" aria-label="搜索与专注">

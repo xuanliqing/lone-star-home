@@ -1,11 +1,11 @@
 {
   "name": "lone-star-ui",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check dist/app.js && node --check dist/assistant.js && node --check dist/assistant-scene.js && node scripts/check-assistant-timing.mjs && node scripts/check-assistant-scene.mjs",
+    "check": "node --check dist/app.js && node --check dist/assistant.js && node --check dist/assistant-scene.js && node scripts/check-assistant-timing.mjs && node scripts/check-assistant-scene.mjs && node scripts/check-custom-links.mjs",
     "build:extension": "node scripts/build-extension.mjs",
     "check:extension": "node scripts/check-extension.mjs"
   }
