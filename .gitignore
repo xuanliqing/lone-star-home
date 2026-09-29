@@ -1,0 +1,37 @@
+# Generated packages and local tooling
+/build/
+/revisions/
+/qa/
+/node_modules/
+/.openai/
+/.codex/
+/.sites-runtime/
+/.venv/
+__pycache__/
+*.pyc
+*.zip
+*.dat
+*.ab
+*.log
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Browser exports and user data
+孤星主页备份-*.json
+lone-star-backup*.json
+lone-star-home-*.json
+storage-state*.json
+storageState*.json
+cookies*.json
+*.har

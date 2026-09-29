@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN" data-ark-theme="ark" data-ark-depth="complex">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#eee6d5">
+  <meta name="description" content="孤星 · Pioneer Project 交互主界面。终端、编队、干员与基建。">
+  <title>孤星 · Pioneer Project</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f4ecdc'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23e27f44' stroke-width='8' stroke-dasharray='112 26'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23e27f44'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="original.css">
+  <script src="original.js" defer></script>
+</head>
+<body>
+<svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="i-squad" viewBox="0 0 140 120"><g fill="none" stroke="currentColor" stroke-width="19"><path d="M60 36C25 9 4 40 15 72c9 27 43 20 48-9L73 42c12-30 52-28 55 5s-18 48-40 30"/><path d="M84 28C45 28 78 92 37 92" stroke-width="8"/></g><circle cx="38" cy="60" r="12" fill="currentColor"/><circle cx="104" cy="59" r="12" fill="currentColor"/><path d="M3 61h23m89 0h23" stroke="var(--paper)" stroke-width="5"/></symbol>
+  <symbol id="i-operator" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" stroke-width="19" stroke-dasharray="188 65" transform="rotate(6 60 60)"/><circle cx="60" cy="60" r="21" fill="currentColor"/><path d="M66 90a31 31 0 0 0 25-30" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="104" cy="41" r="7" fill="#c9b779"/></symbol>
+  <symbol id="i-store" viewBox="0 0 120 120"><circle cx="60" cy="60" r="45" fill="none" stroke="currentColor" stroke-width="11"/><path d="M66 28C25 20 25 98 68 92V78c-21 0-22-42-2-42z" fill="currentColor"/><path d="M75 31v59" stroke="currentColor" stroke-width="7"/></symbol>
+  <symbol id="i-recruit" viewBox="0 0 120 120"><circle cx="60" cy="60" r="43" fill="none" stroke="currentColor" stroke-width="9"/><circle cx="60" cy="60" r="13" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="7"><path d="M60 47 34 29Q14 58 45 62M73 60l21-24Q61 11 59 44M62 74l24 18q25-30-14-32M47 64 26 86q32 23 35-14"/></g></symbol>
+  <symbol id="i-headhunt" viewBox="0 0 120 120"><circle cx="60" cy="60" r="43" fill="none" stroke="currentColor" stroke-width="8"/><circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="7" stroke-dasharray="44 18"/><path d="m28 25 20 25m39-27L69 46M38 96l16-24m38 11L72 69" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="60" cy="60" r="12" fill="#e7784b"/><path d="M61 60h42" stroke="#e7784b" stroke-width="5"/></symbol>
+  <symbol id="i-mission" viewBox="0 0 120 120"><g fill="currentColor"><path d="M33 19a12 12 0 0 1 24 0zm37 10a9 9 0 0 1 18 0zm-43 20a13 13 0 0 1 26 0zm36 6a10 10 0 0 1 20 0zm30 4a8 8 0 0 1 16 0z"/><circle cx="40" cy="77" r="15"/><circle cx="74" cy="80" r="13"/><circle cx="102" cy="85" r="10"/></g><circle cx="40" cy="77" r="8" fill="var(--paper)"/><circle cx="40" cy="77" r="4" fill="currentColor"/></symbol>
+  <symbol id="i-base" viewBox="0 0 120 130"><path d="m60 8 43 23v67l-43 25-43-25V32z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 49c2-25 25-20 40-3s29 17 30 1c0-18-28-8-31 12S30 76 28 60" fill="none" stroke="currentColor" stroke-width="9"/><path d="M37 40v14m-7-7h14" stroke="var(--paper)" stroke-width="4"/><text x="24" y="101" font-family="Arial,sans-serif" font-weight="900" font-size="41" fill="currentColor">SC</text></symbol>
+  <symbol id="i-warehouse" viewBox="0 0 100 100"><g fill="currentColor"><circle cx="50" cy="14" r="5"/><circle cx="63" cy="16" r="5"/><circle cx="76" cy="23" r="5"/><circle cx="37" cy="17" r="5"/><circle cx="25" cy="26" r="5"/><circle cx="18" cy="39" r="5"/><circle cx="17" cy="53" r="5"/><circle cx="22" cy="67" r="5"/><circle cx="33" cy="77" r="5"/><circle cx="47" cy="82" r="5"/><circle cx="61" cy="81" r="5"/><circle cx="74" cy="73" r="5"/><circle cx="81" cy="59" r="5"/><circle cx="68" cy="49" r="5"/><circle cx="54" cy="47" r="5"/><circle cx="51" cy="61" r="5"/><circle cx="64" cy="63" r="5"/><circle cx="35" cy="42" r="5"/><circle cx="42" cy="30" r="5"/><circle cx="56" cy="29" r="5"/><circle cx="69" cy="35" r="5"/><circle cx="33" cy="57" r="5"/></g></symbol>
+</defs></svg>
+<main id="viewport" aria-label="孤星交互主界面">
+ <div id="stage" class="stage">
+  <div class="scene" role="img" aria-label="雪山、古亭与干员构成的冬日场景"></div>
+  <nav class="left-hotspots" aria-label="快捷菜单">
+   <button class="hotspot" style="--x:25;--y:16;--w:73;--h:69" data-open="settings" aria-label="设置" title="设置"></button>
+   <button class="hotspot" style="--x:120;--y:16;--w:70;--h:69" data-open="announcements" aria-label="公告" title="公告"></button>
+   <button class="hotspot" style="--x:213;--y:18;--w:73;--h:65" data-open="mail" aria-label="邮件" title="邮件"></button>
+   <button class="hotspot" style="--x:309;--y:18;--w:78;--h:66" data-open="calendar" aria-label="签到" title="签到"></button>
+   <button class="hotspot" style="--x:0;--y:89;--w:229;--h:70" data-open="calendar" aria-label="星语共愿纪念活动"></button>
+   <button class="hotspot" style="--x:30;--y:328;--w:196;--h:247" data-open="profile" aria-label="个人资料 · 秋雨巫女"></button>
+   <button class="hotspot round" style="--x:331;--y:494;--w:63;--h:60" data-open="scenery" aria-label="欣赏场景" title="欣赏场景"></button>
+   <button class="hotspot round" style="--x:407;--y:491;--w:64;--h:62" data-action="quote" aria-label="切换问候" title="切换问候"></button>
+   <button class="hotspot" style="--x:42;--y:595;--w:566;--h:122" data-action="quote" aria-label="干员问候"></button>
+   <button class="hotspot" style="--x:45;--y:728;--w:366;--h:179" data-open="news" aria-label="新装限时上架"></button>
+   <button class="hotspot" style="--x:416;--y:708;--w:196;--h:83" data-open="friends" aria-label="好友"></button>
+   <button class="hotspot" style="--x:420;--y:792;--w:194;--h:77" data-open="archives" aria-label="档案"></button>
+  </nav>
+  <p id="voice-line" class="voice-line" hidden></p>
+  <section class="right-ui" aria-label="主功能菜单">
+   <div class="currency-strip plane" data-plane="1208,65 2048,-17 2048,79 1208,128" data-size="840,75">
+    <button class="currency credits" data-open="wallet" aria-label="龙门币"><span class="credit-symbol">龍</span><span data-value="credits">619348</span></button>
+    <button class="currency orundum" data-open="wallet" aria-label="合成玉"><span class="gem">◈</span><span data-value="orundum">5660</span><span class="plus">+</span></button>
+    <button class="currency originite" data-open="sanity" aria-label="至纯源石"><span class="hex-gem">⬡</span><span data-value="originite">2</span><span class="plus">+</span></button>
+   </div>
+   <div class="terminal paper plane" data-plane="1216,146 2050,77 2050,349 1214,366" data-size="834,270">
+    <button class="terminal-main" data-open="terminal" aria-label="终端 · 作战"><strong>Terminal</strong><span class="terminal-line"></span><span class="rp">RP<span>Rhodes Pioneer Project</span></span><span class="terminal-fineprint">PIONEER PROJECT — EXPLORE THE UNKNOWN<br>EVERY JOURNEY BEGINS WITH A SINGLE STEP.<br>RECORD / OPERATION / EXPEDITION</span><span class="terminal-status"><b>· 当前 ·</b><span id="terminal-status">全部完成</span></span></button>
+    <button class="sanity-dial" data-open="sanity" aria-label="理智恢复"><svg viewBox="0 0 230 270" aria-hidden="true"><defs><linearGradient id="dial-spectrum"><stop stop-color="#d92329"/><stop offset=".2" stop-color="#ec5224"/><stop offset=".43" stop-color="#eac52c"/><stop offset=".7" stop-color="#dce91b"/><stop offset=".86" stop-color="#5ec4b8"/><stop offset="1" stop-color="#686791"/></linearGradient><radialGradient id="planet"><stop stop-color="#4b4f4e"/><stop offset="1" stop-color="#090a0b"/></radialGradient></defs><ellipse cx="115" cy="135" rx="107" ry="130" fill="#080a0c" stroke="#b8b7ab" stroke-width="7"/><ellipse cx="115" cy="135" rx="103" ry="126" fill="none" stroke="#f7f5e9" stroke-width="3"/><g fill="none" stroke="#4e5050" stroke-width="1.2"><ellipse cx="115" cy="135" rx="63" ry="78"/><ellipse cx="115" cy="135" rx="45" ry="58"/><ellipse cx="115" cy="135" rx="30" ry="40"/><ellipse cx="115" cy="135" rx="18" ry="22"/><path d="M106 135h18m-9-9v18" stroke="#aaa" stroke-width="2"/></g><path d="M21 140A94 113 0 0 0 209 140" fill="none" stroke="url(#dial-spectrum)" stroke-width="11"/><ellipse cx="151" cy="171" rx="29" ry="43" fill="url(#planet)" transform="rotate(26 151 171)"/><g stroke="#ecebdd" stroke-width="2"><path d="M115 33v6m0 195v7M22 133h6m176 0h6M58 55l4 6m107-6-4 6"/></g></svg><span class="sanity-number" data-value="sanity">180</span><span class="sanity-caption">/ SANITY /<b data-value="sanity">180</b></span><span class="dial-plus">+</span></button>
+    <div class="event-banners"><button class="event-banner exodus" data-open="event-exodus" aria-label="活动 · 出苍白海"></button><button class="event-banner unrealized" data-open="event-unrealized" aria-label="活动 · 未许之地"></button></div>
+   </div>
+   <button class="tile paper plane" data-plane="1182,386 1491,383 1491,533 1180,521" data-size="311,150" data-open="squads"><span class="tile-title" data-title="Squads">Squads</span><span class="project">Pioneer Project ∷</span><span class="tile-label">编队<i></i></span><span class="orbit"><svg><use href="#i-squad"/></svg></span><span class="edge-mark">≡</span></button>
+   <button class="tile paper plane" data-plane="1506,383 1886,380 1886,546 1506,532" data-size="380,166" data-open="operators"><span class="tile-title" data-title="Operator">Operator</span><span class="project">Pioneer Project ∷</span><span class="tile-label">干员<i></i></span><span class="orbit"><svg><use href="#i-operator"/></svg></span><span class="edge-mark">≡</span></button>
+   <div class="empty-slot plane" data-plane="1901,381 2070,380 2070,552 1901,547" data-size="169,171" aria-hidden="true"></div>
+   <button class="store-tile dark-paper plane" data-plane="1274,543 1519,553 1519,710 1269,686" data-size="250,157" data-open="store"><span class="project">∷ Pioneer Project</span><span class="dark-orbit"><svg><use href="#i-store"/></svg></span><strong>STORE</strong><span class="store-label">采购中心</span></button>
+   <section class="recruitment dark-paper plane" data-plane="1520,553 1982,574 1982,743 1519,710" data-size="464,175" aria-label="招募">
+    <div class="recruitment-header"><b>Requirement</b><span>▸ GET</span><span>000100100</span><span>HR MIN SEC</span><span>RH2</span></div>
+    <button data-open="recruit" class="recruit-choice"><span class="dark-orbit"><svg><use href="#i-recruit"/></svg></span><span>公开招募</span></button>
+    <button data-open="headhunt" class="recruit-choice headhunt"><span class="dark-orbit"><svg><use href="#i-headhunt"/></svg></span><span>干员寻访</span></button>
+   </section>
+   <button class="tile paper plane mission-tile" data-plane="1216,707 1488,735 1488,875 1213,838" data-size="275,145" data-open="missions"><span class="tile-title" data-title="Mission">Mission</span><span class="project">Pioneer Project ∷</span><span class="tile-label">任务<i></i></span><span class="orbit"><svg><use href="#i-mission"/></svg></span><span class="edge-mark">≡</span><span class="notification-dot" id="mission-dot"></span></button>
+   <button class="tile paper plane base-tile" data-plane="1507,734 1814,759 1814,917 1504,876" data-size="310,155" data-open="base"><span class="tile-title" data-title="Base">Base</span><span class="project">Pioneer Project ∷</span><span class="tile-label">基建<i></i></span><span class="orbit"><svg><use href="#i-base"/></svg></span><span class="edge-mark">≡</span></button>
+   <button class="base-badge plane" data-plane="1694,725 1819,732 1819,773 1691,760" data-size="128,42" data-open="base" aria-label="基建待办"><span>♟∶</span><b data-value="deliveries">5</b></button>
+   <button class="warehouse dark-paper plane" data-plane="1815,760 1953,773 1953,932 1813,917" data-size="140,162" data-open="warehouse"><svg><use href="#i-warehouse"/></svg><span>仓库</span></button>
+  </section>
+ </div>
+ <div class="mobile-heading"><span>PIONEER PROJECT</span><b>秋雨巫女 <small>LV.120</small></b><button data-open="settings" aria-label="设置">⚙</button></div>
+</main>
+<dialog id="panel" aria-labelledby="panel-title"><div class="panel-shell"><header class="panel-header"><div><span id="panel-kicker">PIONEER PROJECT</span><h1 id="panel-title"></h1></div><button class="close-button" id="close-panel" aria-label="返回主界面">返回 <span>×</span></button></header><div id="panel-content"></div><footer class="panel-footer"><span>PIONEER PROJECT</span><span>本地交互演示</span></footer></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>

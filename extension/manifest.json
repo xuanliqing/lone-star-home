@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "孤星 · 新的一页",
+  "short_name": "孤星主页",
+  "description": "天文台主题新标签页：阿米娅动态立绘、自动昼夜、搜索、网站收藏、专注计时、待办、便签与天气。",
+  "version": "1.0.7",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "host_permissions": [
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.open-meteo.com https://geocoding-api.open-meteo.com; base-uri 'none'; frame-src 'none'"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqloa55CEMNTVpYNXuQV4YBWYfZl3QbxeYOuif4u08dGMSxR3oYyR57e6KOJXdYNun2sorD0hqeioFx5IdYU7WIhpU6I7xkjV3gSlVWqdRwujH3BWuXDtfur5Cslvi2qgNJXf+femS2vmmbHR9T/aHTPnuUcot7fz5qhcAoTPi5Fqd21f96Tp5fMZJfNKNKU27MOBED1gwVb6xj2g+ldkDm2SNHtaQ1+owSy60hpkzdehTRAAR3n9lkwLJLCGSPsuXncTdg/GViThUVwVqUs5mx6PLZc0ysILb/L37YMECmnyu3uKguv9KIWTgL20wVm4yZD3ZFq3slHtZZZzB5oXVwIDAQAB"
+}

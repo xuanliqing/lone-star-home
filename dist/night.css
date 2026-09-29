@@ -1,0 +1,205 @@
+/* Night component set. Main visual reference: the official Tianxiang animated
+   announcement linked in assets/SOURCES.md. Layout stays shared with daylight. */
+.dial-night-index{display:none}
+body[data-background=night]{
+ --ink:#edeedc;--muted:#b3b5a0;--night-surface:#0b100e;--night-raised:#191e18;
+ --night-line:#707361;--night-ivory:#e7e6cd;--night-secondary:#bfc1aa;
+ --night-signal:#e96e3c;--night-signal-dark:#873719;
+ --paper-rim:inset 0 1px 0 #697166,inset 1px 0 0 #3a453b,inset -1px -1px 0 #050b08;
+ --paper-side:1px 1px 0 #5a6255,2px 2px 0 #343d31,3px 3px 0 #20281f,4px 4px 0 #111a12;
+ --dark-rim:inset 0 1px 0 #5e6758,inset 1px 0 0 #354134,inset -1px -1px 0 #020805;
+ --dark-side:1px 1px 0 #454c3c,2px 2px 0 #2b3325,3px 3px 0 #141e15,4px 4px 0 #080f0a;
+ --type-raised:0 -.4px 0 #fbf7de,.7px 1px 0 #111a11;
+ color:var(--night-ivory);color-scheme:dark;
+}
+body[data-background=night] .paper{
+ background-color:var(--night-surface);
+ background-image:url('assets/paper-grain.svg'),linear-gradient(118deg,rgba(138,153,120,.045),transparent 45%,rgba(0,0,0,.2)),linear-gradient(90deg,rgba(166,179,147,.035) 1px,transparent 1px),linear-gradient(rgba(166,179,147,.025) 1px,transparent 1px);
+ background-size:192px 192px,100% 100%,58px 58px,58px 58px;
+}
+body[data-background=night] .paper::after{
+ height:3px;background:linear-gradient(90deg,#526c5e 0 31%,#968657 31% 65%,#733f3b 65%);
+ box-shadow:0 -1px 0 #9b977137,0 1px 0 #050c07;
+}
+body[data-background=night] .tile::before{
+ content:"";position:absolute;inset:6px;pointer-events:none;
+ background:linear-gradient(#b5bea0,#b5bea0) left top/8px 1px no-repeat,linear-gradient(#b5bea0,#b5bea0) left top/1px 8px no-repeat,linear-gradient(#b5bea0,#b5bea0) right top/8px 1px no-repeat,linear-gradient(#b5bea0,#b5bea0) right top/1px 8px no-repeat;
+ opacity:.38;
+}
+body[data-background=night] .tile-title{color:#f4f3df;-webkit-text-stroke:.3px currentColor;text-shadow:0 1px 0 #1c241a}
+body[data-background=night] .tile-title::after{color:#d3d7bd;opacity:.22}
+body[data-background=night] .tile-label{color:#c1c1a7;text-shadow:0 -.4px 0 #f0efd156,0 1px 1px #010601}
+body[data-background=night] .tile-label i{filter:grayscale(1) sepia(.75);opacity:.65}
+body[data-background=night] .project{color:#778071;text-shadow:none}
+body[data-background=night] .tile-status{color:#d5d1b6}
+body[data-background=night] .edge-mark{background-color:transparent;filter:grayscale(1);opacity:.35}
+body[data-background=night] .edit-shortcut{background:#2c3427dc;color:#e2e2be}
+
+/* Soft iridescence stays around the glyph; text never receives blur or glow. */
+body[data-background=night] .orbit{background:none;border:0;color:var(--night-ivory)}
+body[data-background=night] .orbit::before{
+ inset:11%;border:0;background:conic-gradient(from 28deg,#a6b99a,#66668c 15%,#9a7d86 31%,#b9bf8c 48%,#628783 63%,#7874a6 79%,#afbfa4);
+ border-radius:50%;mask-image:radial-gradient(circle,transparent 0 48%,#000 64% 78%,transparent 96%);
+ filter:blur(6px);opacity:.72;animation:night-iridescence 17s linear infinite;animation-play-state:var(--ambient-play);
+}
+body[data-background=night] .orbit::after{
+ content:"";position:absolute;inset:23%;border:0;border-radius:50%;pointer-events:none;
+ background:radial-gradient(ellipse at 34% 23%,#e4efd258,transparent 55%);
+ filter:blur(5px);animation:night-light-breathe 9s ease-in-out infinite;animation-play-state:var(--ambient-play);
+}
+body[data-background=night] .primary-1 .orbit::before{animation-delay:-8s;animation-direction:reverse}
+body[data-background=night] .mission-tile .orbit::before{animation-delay:-5s}
+body[data-background=night] .weather-tile .orbit::before{animation-delay:-12s}
+body[data-background=night] .orbit svg{z-index:1;filter:drop-shadow(0 -.5px 0 #ffffe88c) drop-shadow(.8px 1px 0 #18211a) drop-shadow(0 0 2px #dce6bd45)}
+body[data-background=night] .base-fill-phase{display:none;animation:none}
+body[data-background=night] .warehouse{background-color:#111712;background-image:url('assets/paper-grain.svg'),linear-gradient(110deg,#31423344,#080d0944)}
+body[data-background=night] .warehouse svg{color:#dbded2;filter:drop-shadow(0 0 1.5px #d1e2cb66)}
+body[data-background=night] .warehouse>span{color:#d9d9c6;text-shadow:var(--type-raised)}
+body[data-background=night] .base-badge{background:linear-gradient(160deg,#a5cfb7,#72a98e 45%,#568870);color:#f2f2d8;border-top-color:#d4e6ce;text-shadow:0 1px 0 #345641}
+
+/* Night's orange blocks are structural accents, not a global color inversion. */
+body[data-background=night] .store-tile,
+body[data-background=night] .left-mini.archives{
+ background-color:var(--night-signal);
+ background-image:url('assets/paper-grain.svg'),linear-gradient(115deg,#e98144,#d55430 72%,#ac4028);
+ background-size:192px 192px,100% 100%;
+ --dark-rim:inset 0 1px 0 #f9b386,inset 1px 0 0 #f49263,inset -1px -1px 0 #823719;
+ --dark-side:1px 1px 0 #9a542f,2px 2px 0 #733c24,3px 3px 0 #412c1d,4px 4px 0 #182014;
+}
+body[data-background=night] .store-tile::before{background:linear-gradient(#c5cf8f 0 38%,#a6b29e 38% 64%,#a85234 64%)}
+body[data-background=night] .store-tile::after{opacity:.75;filter:grayscale(1) brightness(2)}
+body[data-background=night] .store-tile .project{color:#ffddbb;text-shadow:none}
+body[data-background=night] .store-tile .dark-orbit{background:none;color:#fff2cf}
+body[data-background=night] .store-tile .dark-orbit::before,
+body[data-background=night] .store-tile .dark-orbit::after{display:none}
+body[data-background=night] .store-tile .dark-orbit svg{filter:drop-shadow(0 1px 0 #9f522e)}
+body[data-background=night] .store-tile>strong{color:#fff1cc;text-shadow:0 -17px #ffd7b328,0 -31px #ffd7b318}
+body[data-background=night] .store-tile>strong::after{background:#ffdda4;box-shadow:none;height:2px}
+body[data-background=night] .store-label{color:#fff2d3;text-shadow:0 1px 0 #a75634}
+body[data-background=night] .recruitment{background-color:#090e0b;border-color:#86775b}
+body[data-background=night] .recruitment-header{background:linear-gradient(#f17c43,#df5b31);color:#542a1a;border-bottom-color:#ffb77c;text-shadow:0 1px 0 #ffb07833}
+body[data-background=night] .recruitment-header b{color:#593320}
+body[data-background=night] .recruitment::before,body[data-background=night] .recruitment::after{opacity:.45}
+body[data-background=night] .recruit-choice{background-image:repeating-linear-gradient(90deg,#ac42274d 0 1px,#0004 1px 3px,transparent 3px 7px)}
+body[data-background=night] .recruit-choice .dark-orbit{color:#d6d4b7;background-image:url('assets/dial-etch.svg'),radial-gradient(circle,#d391442b 0 32%,#8e482227 46%,transparent 69%)}
+body[data-background=night] .recruit-choice>span:last-child{color:#d4d1b6;text-shadow:0 1px 1px #010702}
+
+/* Search, glass instrument, and featured sites. */
+body[data-background=night] .terminal{background-color:#121814;box-shadow:var(--paper-depth)}
+body[data-background=night] .terminal .search-content::before{filter:grayscale(1) brightness(1.45);opacity:.55}
+body[data-background=night] .terminal-line{box-shadow:0 1px 0 #77795544;opacity:.84}
+body[data-background=night] .engines button{color:#c0c5ad}
+body[data-background=night] .engines button[aria-pressed=true]{color:#ffffe8;border-bottom-color:#e7b36c}
+body[data-background=night] #search-form{background:linear-gradient(120deg,#050b0780,#27302766);border-color:#62674a66;border-bottom-color:#9b986d;box-shadow:inset 1px 2px 3px #0008,inset -1px -1px 0 #88926c22,0 1px 0 #010801}
+body[data-background=night] #search-input{color:#f5f2d6}
+body[data-background=night] #search-input::placeholder{color:#bfc4ac}
+body[data-background=night] #search-form>button{background:#d9ddbd;color:#192019;box-shadow:inset 0 1px 0 #ffffdf,1px 2px 0 #4b553f}
+body[data-background=night] #search-form>button:hover{background:#f1e5b9}
+body[data-background=night] .terminal-status{color:#b2b29b;text-shadow:none}
+body[data-background=night] .terminal-status b{color:#f1eed3;background:#030904;box-shadow:0 1px 0 #b3bb8e44}
+body[data-background=night] .terminal-status kbd{color:#a2a88d;border-color:#656f53}
+body[data-background=night] .featured-link{box-shadow:inset 0 1px 0 #c5c9a34a,1px 1px 0 #6e7256,2px 2px 0 #424b35,3px 5px 3px #0006,5px 8px 8px #0004}
+body[data-background=night] .featured-link::after{background:linear-gradient(165deg,#e6f0be12,transparent 48%,#070f1559);border-color:#c9d0ab44}
+body[data-background=night] .featured-3{background-image:linear-gradient(100deg,#17231e44,#10202244),url('assets/observatory-night.webp');background-position:64% 62%}
+body[data-background=night] .featured-3 strong{color:#f2dfb9;text-shadow:0 1px 2px #000}
+body[data-background=night] .featured-3>span{color:#e7e9cb;background:#17231ad1}
+body[data-background=night] .empty-slot{background:linear-gradient(125deg,#18231acc,#0b120fd9);color:#b6bda5;border-color:#7b84624d;box-shadow:inset 2px 3px 6px #0007,inset -1px -1px 0 #a6b28833,1px 2px 0 #020702,5px 7px 8px #0005}
+body[data-background=night] .sanity-dial::before{content:"";position:absolute;inset:14px 10px;border:1px solid #cbd5af35;pointer-events:none}
+body[data-background=night] .sanity-dial>svg{filter:drop-shadow(1px 2px 0 #667160) drop-shadow(3px 5px 4px #0009) drop-shadow(0 0 2px #d2e4b937)}
+body[data-background=night] .sanity-number{text-shadow:-.6px .8px 0 #a2c9b26e,.5px -.5px 0 #c086796e;color:#ffffec}
+body[data-background=night] .dial-night-index{display:block}
+body[data-background=night] .dial-plus{color:#182018;background:linear-gradient(130deg,#ffffeb,#dce5c9);box-shadow:inset 0 1px 0 #fffef0,1px 2px 0 #7c896d,3px 5px 5px #0007}
+
+/* Left column: pale control lamps, ochre daily ribbon, dark Guide / orange Archive. */
+body[data-background=night] .quick-menu svg{filter:drop-shadow(1px 2px 0 #556454) drop-shadow(0 0 3px #dbedc335)}
+body[data-background=night] .daily-tab{background:linear-gradient(90deg,#8e804de6,#71684470);box-shadow:inset 0 1px 0 #d5d29b,1px 2px 0 #504c2d,4px 6px 5px #0005}
+body[data-background=night] .daily-tab>span:last-child{color:#fbf6dc;text-shadow:0 1px 0 #5d5736}
+body[data-background=night] .identity-ring{border-color:#e7e8cc69;border-top-color:#d8dfc459}
+body[data-background=night] .local-time{background:#131b13eb;border-bottom:1px solid #bbb87c80;box-shadow:var(--dark-rim),1px 2px 0 #4d5743,4px 6px 4px #0006}
+body[data-background=night] .identity>p{color:#f1f0dc;text-shadow:0 1px 1px #111910}
+body[data-background=night] .scene-controls button{background:#152019e8;box-shadow:inset 0 1px 1px #ccd5b8,inset 0 -2px 3px #010901,1px 2px 0 #485b3d,4px 6px 5px #0006}
+body[data-background=night] .notes-dock{background-color:#0b130fdb;background-image:linear-gradient(113deg,#64765b12,#0004),url('assets/paper-grain.svg')}
+body[data-background=night] .notes-dock textarea{color:#f3f1d9}
+body[data-background=night] .notes-dock textarea::placeholder{color:#dfdfc9}
+body[data-background=night] .notes-bottom{color:#bfc5ad}
+body[data-background=night] .note-ribbon{background:linear-gradient(90deg,#d36331,#ed8950);color:#ffeac8}
+body[data-background=night] .scenery-card{border-bottom-color:#dfcb82}
+body[data-background=night] .scenery-bar{background:#be6336;color:#f5e7c7}
+body[data-background=night] .left-mini:not(.archives) svg{color:#e5e5c7;filter:drop-shadow(0 0 4px #a6b59475)}
+body[data-background=night] .left-mini:not(.archives)::before{content:"";position:absolute;left:8px;top:5px;width:74px;height:67px;background:radial-gradient(ellipse,#bad0a34d,transparent 70%);pointer-events:none}
+body[data-background=night] .left-mini b,body[data-background=night] .left-mini>span{color:#eae8d0;text-shadow:0 1px 0 #142013}
+body[data-background=night] .left-mini.archives svg{color:#ffe8c3;filter:drop-shadow(0 1px 0 #934724)}
+body[data-background=night] .left-mini.archives b,body[data-background=night] .left-mini.archives>span{color:#ffebc9;text-shadow:0 1px 0 #9b4a2c}
+
+/* Browser-home tools inherit the same palette and readable focus states. */
+body[data-background=night] dialog{background:#101710;color:var(--night-ivory);border-color:#70735a;box-shadow:var(--dark-rim),var(--dark-side),8px 12px 8px #0007,20px 28px 50px #0008;scrollbar-color:#8b9675 #182116}
+body[data-background=night] dialog::backdrop{background:#030806ab}
+body[data-background=night] .modal-shell{background-image:linear-gradient(90deg,#9daa7a09 1px,transparent 1px),linear-gradient(#9daa7a09 1px,transparent 1px)}
+body[data-background=night] .modal-heading{background:#192116;border-color:#606d4566}
+body[data-background=night] .modal-heading h2{color:#f2eed3;text-shadow:0 1px 0 #000}
+body[data-background=night] .modal-heading p,body[data-background=night] .settings-section{color:#eaa675}
+body[data-background=night] .modal-close{color:#ddd7bb}
+body[data-background=night] .modal-footer{color:#aab499;border-color:#65734b66}
+body[data-background=night] .modal-footer::after{background:linear-gradient(90deg,#61775c 0 33%,#b1a26a 33% 66%,#b65a3c 66%)}
+body[data-background=night] .settings-row>label{color:#e0e1c9}
+body[data-background=night] .help-list{color:#c1c8ae}
+body[data-background=night] .help-list strong{color:#f0edd4}
+body[data-background=night] .help-list code{color:#f1d09d;background:#42503770}
+body[data-background=night] .source-link{color:#eab27c}
+body[data-background=night] .weather-reading>strong{color:#f1efd2}
+body[data-background=night] .weather-symbol{color:#dedfc1}
+body[data-background=night] .todo-list{list-style:none;padding:0;margin:0 0 20px;overflow-y:auto}
+body[data-background=night] .todo-empty{padding:28px 12px;text-align:center;border:1px dashed #65744a66}
+body[data-background=night] .todo-row{display:flex;align-items:center;gap:12px;border-bottom:1px solid #68774f44}
+body[data-background=night] .todo-row>label{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+body[data-background=night] .todo-row>label>span{overflow-wrap:anywhere}
+body[data-background=night] .todo-row.done>label>span{text-decoration:line-through}
+body[data-background=night] .todo-remove{background:none;padding:8px}
+body[data-background=night] .todo-form{display:flex;align-items:center;gap:10px;border-color:#68774f}
+body[data-background=night] .todo-form>input{flex:1;min-width:0;padding:12px;border:1px solid #68774f88}
+body[data-background=night] .todo-form>button{width:43px;height:43px;flex:0 0 43px;color:#efdfb6;background:#455238}
+body[data-background=night] :is(.field>label,.modal-description,.settings-row small,.workspace-stat,.weather-caption,.weather-caption span,.weather-source,.set-city,.city-result small,.bookmark-row small){color:var(--night-secondary)}
+body[data-background=night] :is(.field input,.field select,.settings-row select,.settings-row input[type=text],.todo-form input){color:#f0edd6;background:#252e20;border-color:#7d896457}
+body[data-background=night] :is(input,textarea)::placeholder{color:#aeb79c;opacity:1}
+body[data-background=night] :is(select,input[type=checkbox]){accent-color:#e49760}
+body[data-background=night] .action-button{background:#c96638;color:#fff0d4;border-color:#ffe0a3;box-shadow:inset 0 1px 0 #f7b47d7d,1px 2px 0 #694020,2px 3px 0 #14200f}
+body[data-background=night] .action-button:hover{background:#dc7948}
+body[data-background=night] .action-button.secondary{background:#343e2d;color:#e1e3c8;border-color:#a4af85}
+body[data-background=night] .text-button{color:#e8b785}
+body[data-background=night] :is(.text-button.danger,.form-error,.weather-error){color:#ffb39a}
+body[data-background=night] .row-actions button{background:#48553d55;color:#e2dbc0}
+body[data-background=night] :is(.bookmark-row,.settings-section,.history-item,.todo-row){border-color:#6d7a4b44}
+body[data-background=night] .category-tabs button{background:#3845306b;color:#d2d9bc}
+body[data-background=night] .category-tabs button[aria-pressed=true]{background:#bd6236;color:#fff0ce;box-shadow:inset 0 -3px #f6cd8a}
+body[data-background=night] .background-choice{background:#263120;color:#d8dfc1}
+body[data-background=night] .background-choice.selected{border-color:#edaa69}
+body[data-background=night] .background-choice.selected::after{background:#e6a263;color:#1b2014}
+body[data-background=night] :is(.city-result,.recent-searches){background:#222d1f;color:#f0ebcf;border-color:#758057}
+body[data-background=night] :is(.recent-item,.history-item){color:#dedfc7}
+body[data-background=night] :is(.recent-searches header,.recent-searches header button){color:#e3b482}
+body[data-background=night] :is(.recent-item,.history-item,.city-result):hover{background:#3b4830}
+body[data-background=night] .weather-caption b{color:#eae9d0}
+body[data-background=night] :is(.clear-completed,.todo-remove){color:#dfb685}
+body[data-background=night] .todo-empty{color:#c2c9b0}
+body[data-background=night] .todo-row.done{color:#a6b094}
+body[data-background=night] .toast{background:#202a1c;color:#e9ecd1;border-color:#d9b278;box-shadow:0 6px 25px #0006}
+
+/* A crossfade preserves the scene geometry and never animates the projection. */
+body[data-background] .scenery{background-image:url('assets/observatory-day-original.png')}
+.scenery::after{content:"";position:absolute;inset:0;background:url('assets/observatory-night.webp') center/cover no-repeat;opacity:0;transition:opacity .7s ease}
+body[data-background=night] .scenery::after{opacity:1}
+.paper,.store-tile,.recruitment-header,.left-mini,.daily-tab,.notes-dock,.tile-title,.tile-label{transition:background-color .45s,color .45s,box-shadow .25s}
+
+@keyframes night-iridescence{from{rotate:0deg}to{rotate:360deg}}
+@keyframes night-light-breathe{0%,100%{opacity:.42;transform:translate(-2px,1px)}50%{opacity:.82;transform:translate(2px,-2px)}}
+@media(min-width:901px),(orientation:landscape){
+ body[data-background=night] .plane[data-surface-rect]{--paper-side:1px -.5px 0 #5a6255,2px -1px 0 #343d31,3px -1.5px 0 #20281f,4px -2px 0 #111a12;--dark-side:1px -.5px 0 #454c3c,2px -1px 0 #2b3325,3px -1.5px 0 #141e15,4px -2px 0 #080f0a}
+ body[data-background=night] .store-tile{--dark-side:1px -.5px 0 #9a542f,2px -1px 0 #733c24,3px -1.5px 0 #412c1d,4px -2px 0 #182014}
+}
+@media(max-width:900px) and (orientation:portrait){
+ body[data-background=night] .store-tile>strong{text-shadow:0 -13px #ffd7b328,0 -24px #ffd7b318}
+ body[data-background=night] .orbit::before{filter:blur(4px)}
+ body[data-background=night] .sanity-dial::before{inset:5px 4px}
+}
+body.reduce-motion .orbit::before,body.reduce-motion .orbit::after{animation:none!important}
+@media(prefers-reduced-motion:reduce){.orbit::before,.orbit::after{animation:none!important}.scenery::after{transition:none}}

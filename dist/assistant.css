@@ -1,0 +1,33 @@
+/* The assistant sits in the scene, behind every homepage control. */
+.home-assistant{position:absolute;left:230px;top:-100px;width:950px;height:1115px;z-index:1;pointer-events:none}
+.home-assistant[hidden]{display:none}
+.assistant-art{position:absolute;inset:0 0 47px;transform:scale(1.2);transform-origin:center;filter:drop-shadow(7px 13px 11px #14231c3b);transition:filter .8s}
+#assistant-canvas{display:block;width:100%;height:100%}
+.home-assistant[data-scene=true] #assistant-canvas{position:absolute;left:-56%;top:-18%;width:186%;height:139%}
+#assistant-canvas[hidden],#assistant-fallback[hidden]{display:none}
+#assistant-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.assistant-touch{position:absolute;left:29%;top:23%;width:51%;height:51%;background:transparent;pointer-events:auto;border:0}
+.assistant-touch:focus-visible{outline:1px dashed #e8dcc68c;outline-offset:5px}
+.assistant-caption{position:absolute;left:300px;bottom:44px;display:flex;align-items:center;gap:20px;padding:9px 12px 9px 16px;min-width:278px;color:#f3efdb;background:linear-gradient(100deg,#17201dcc,#17201d99 70%,#17201d08);border-left:3px solid #d7bd7b;text-shadow:0 1px 3px #17201d;pointer-events:auto}
+.assistant-name{display:grid;gap:3px}
+.assistant-name b{font-size:25px;letter-spacing:2px;line-height:1}
+.assistant-name small{font-size:11px;letter-spacing:1.1px;color:#e2d1a7}
+.assistant-actions{display:flex;gap:5px;margin-left:auto}
+.assistant-actions button{background:#f1e9cf17;color:inherit;padding:7px 9px;min-width:32px;font-size:13px;line-height:1.2}
+.assistant-actions button:hover{background:#f1e9cf36}
+.assistant-actions [data-action=assistant-scene][aria-pressed=true]{background:#d7bd7b38;color:#fff3d2}
+.assistant-actions button:disabled{opacity:.4}
+#assistant-status{position:absolute;left:160px;bottom:80px;max-width:400px;background:#17201dd4;color:#f0e8cc;padding:9px 12px;font-size:13px;line-height:1.6}
+#assistant-status[hidden]{display:none}
+body[data-background=night] .assistant-art{filter:drop-shadow(0 0 8px #cdcce82e) drop-shadow(7px 15px 15px #030c1766)}
+.left-ui{z-index:2;pointer-events:none}
+.left-ui :is(a,button,input,textarea,.notes-dock){pointer-events:auto}
+.right-ui{z-index:3}
+@media(max-width:900px) and (orientation:portrait){
+ .home-assistant{left:auto;right:-68px;top:-83px;width:295px;height:410px;opacity:.76}
+ .assistant-caption,#assistant-status,.assistant-touch{display:none}
+ .assistant-art{inset:0;mask-image:linear-gradient(#000 0 75%,transparent 100%)}
+ .left-ui{position:relative}
+ .identity{pointer-events:none;z-index:2}
+}
+@media(prefers-reduced-motion:reduce){.assistant-art{transition:none}}

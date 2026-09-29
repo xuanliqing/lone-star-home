@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN" data-ark-theme="ark" data-ark-depth="complex">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efe7d6"><meta name="description" content="孤星浏览器主页。搜索、常用网站、专注计时、待办与随手记。"><title>孤星</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f3ebda'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23db7f49' stroke-width='8' stroke-dasharray='104 28'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23db7f49'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="materials.css"><link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="night.css"><link rel="stylesheet" href="optics.css"><link rel="stylesheet" href="assistant.css"><script src="vendor/spine-webgl.js" defer></script><script src="assistant-scene.js" defer></script><script src="assistant.js" defer></script><script src="app.js" defer></script>
+</head>
+<body data-background="day">
+<svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <!-- Vector reconstruction from the supplied home-screen reference. -->
+  <mask id="squad-channels" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="128">
+   <rect width="160" height="128" fill="#fff"/>
+   <path d="M44 98C69 98 75 80 80 62S92 29 116 29" fill="none" stroke="#000" stroke-width="12"/>
+   <path d="M44 98C69 98 75 80 80 62S92 29 116 29" fill="none" stroke="#fff" stroke-width="4.5"/>
+   <path d="M1 64h27m105 0h26" stroke="#000" stroke-width="4"/>
+  </mask>
+  <symbol id="i-squad" viewBox="0 0 160 128">
+   <path d="M65 40C59 34 51 31 43 31C24 31 12 46 12 64C12 83 25 98 44 98C66 98 75 81 81 63S95 30 116 30C135 30 148 45 148 64C148 83 135 98 116 98C107 98 100 95 93 89" fill="none" stroke="currentColor" stroke-width="22" mask="url(#squad-channels)"/>
+   <path class="ambient-loop squad-signal" d="M44 98C69 98 75 80 80 62S92 29 116 29" fill="none" stroke="#fff9df" stroke-width="2" pathLength="100" stroke-dasharray="12 88"/>
+   <circle cx="43" cy="64" r="12.5" fill="currentColor"/><path d="M116 51.5A12.5 12.5 0 0 0 116 76.5Z" fill="currentColor"/>
+   <circle cx="150" cy="23" r="7" fill="#c9b779"/>
+  </symbol>
+  <mask id="operator-channel" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+   <rect width="120" height="120" fill="#fff"/><path d="M100 60A40 40 0 0 1 60 100" fill="none" stroke="#000" stroke-width="4"/>
+  </mask>
+  <symbol id="i-operator" viewBox="0 0 120 120">
+   <path d="M108 60A48 48 0 1 1 92.12 24.33L80.74 36.96A31 31 0 1 0 91 60Z" fill="currentColor" mask="url(#operator-channel)"/>
+   <circle cx="60" cy="60" r="21" fill="currentColor"/><circle class="ambient-loop operator-signal" cx="60" cy="60" r="39" fill="none" stroke="#fff4cd" stroke-width="1.4" pathLength="100" stroke-dasharray="8 92"/><circle cx="111" cy="37" r="7" fill="#c9b779"/>
+  </symbol>
+  <symbol id="i-store" viewBox="0 0 120 120">
+   <circle cx="60" cy="60" r="49.5" fill="none" stroke="currentColor" stroke-width=".65" opacity=".48"/>
+   <path d="M60 13A47 47 0 1 0 60 107A47 47 0 1 0 60 13ZM60 28A32 32 0 1 1 60 92A32 32 0 1 1 60 28Z" fill="currentColor" fill-rule="evenodd"/>
+   <path d="M59 33A27 27 0 0 0 59 87V72A12 12 0 0 1 59 48Z" fill="currentColor"/>
+   <path d="M63 33V87" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+  <mask id="recruit-channels" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+   <circle cx="60" cy="60" r="48" fill="#fff"/>
+   <circle cx="60" cy="60" r="33" fill="none" stroke="#000" stroke-width="5" pathLength="360" stroke-dasharray="77 13" transform="rotate(-43 60 60)"/>
+   <path d="M80.65 30.51L39.35 89.49M30.51 39.35L89.49 80.65" fill="none" stroke="#000" stroke-width="5"/>
+   <circle cx="60" cy="60" r="13" fill="#000"/>
+  </mask>
+  <symbol id="i-recruit" viewBox="0 0 120 120">
+   <circle cx="60" cy="60" r="49.5" fill="none" stroke="currentColor" stroke-width=".65" opacity=".48"/>
+   <circle cx="60" cy="60" r="48" fill="currentColor" mask="url(#recruit-channels)"/>
+  </symbol>
+  <mask id="headhunt-channels" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+   <circle cx="60" cy="60" r="48" fill="#fff"/>
+   <circle cx="60" cy="60" r="36.5" fill="none" stroke="#000" stroke-width="4" stroke-dasharray="71 5.45" transform="rotate(-72 60 60)"/>
+   <circle cx="60" cy="60" r="24.5" fill="none" stroke="#000" stroke-width="7" stroke-dasharray="45 6.313" transform="rotate(-63 60 60)"/>
+   <path d="M25.36 40L49.61 54M60 100V72M94.64 40L70.39 54" fill="none" stroke="#000" stroke-width="4.5"/>
+   <circle cx="60" cy="60" r="13" fill="#000"/>
+  </mask>
+  <symbol id="i-headhunt" viewBox="0 0 120 120">
+   <circle cx="60" cy="60" r="49.5" fill="none" stroke="currentColor" stroke-width=".65" opacity=".48"/>
+   <g class="ambient-loop headhunt-rings"><circle cx="60" cy="60" r="48" fill="currentColor" mask="url(#headhunt-channels)"/></g>
+   <g class="ambient-loop headhunt-pointer"><path d="M60 60H107" stroke="#dd7948" stroke-width="5"/></g>
+   <circle cx="60" cy="60" r="11.7" fill="#dd7948" stroke="#f2dec0" stroke-width=".8"/>
+  </symbol>
+  <symbol id="i-mission" viewBox="0 0 120 128">
+   <g fill="currentColor">
+    <path d="M11 19A12 12 0 0 1 35 19ZM10 47A13 13 0 0 1 36 47ZM51 47A10 10 0 0 1 71 47ZM8 75A15 15 0 0 1 38 75ZM49 75A12 12 0 0 1 73 75ZM86 75A9 9 0 0 1 104 75Z"/>
+    <path d="M23 83A16 16 0 1 0 23 115A16 16 0 1 0 23 83ZM23 89A10 10 0 1 1 23 109A10 10 0 1 1 23 89Z" fill-rule="evenodd"/>
+    <circle cx="23" cy="99" r="5"/><circle cx="61" cy="99" r="14"/><circle cx="95" cy="99" r="11"/>
+   </g>
+  </symbol>
+  <symbol id="i-base" viewBox="0 0 128 144">
+   <path d="M64 6L108 31Q112 33 112 38V106Q112 110 108 112L68 136Q64 139 60 136L20 112Q16 110 16 106V38Q16 33 20 31Z" fill="none" stroke="currentColor" stroke-width="2.8"/>
+   <g fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round">
+    <path d="M35 24V65M35 51C35 36 48 33 58 42L79 63C89 72 99 64 97 50C95 34 80 35 71 48L58 64C47 77 35 65 35 51ZM98 50V73"/>
+    <path d="M59 88C49 80 35 85 36 94C37 102 61 102 60 111C59 122 43 121 35 113"/>
+    <path d="M100 114C92 124 77 119 74 108C70 96 79 84 90 88C99 90 101 98 100 103H79M100 103H112"/>
+   </g>
+   <circle cx="48" cy="53" r="10" fill="var(--paper)"/><path d="M48 47V59M42 53H54" stroke="currentColor" stroke-width="3.5"/>
+   <path d="M81 54H92" stroke="var(--paper)" stroke-width="3.5"/><circle cx="29" cy="113" r="3.4" fill="currentColor"/>
+<g class="ambient-loop base-fill-phase">
+   <path d="M64 6L108 31Q112 33 112 38V106Q112 110 108 112L68 136Q64 139 60 136L20 112Q16 110 16 106V38Q16 33 20 31Z" fill="currentColor" stroke="currentColor" stroke-width="2.8"/>
+   <g fill="none" stroke="var(--paper)" stroke-width="8" stroke-linejoin="round">
+    <path d="M35 24V65M35 51C35 36 48 33 58 42L79 63C89 72 99 64 97 50C95 34 80 35 71 48L58 64C47 77 35 65 35 51ZM98 50V73"/>
+    <path d="M59 88C49 80 35 85 36 94C37 102 61 102 60 111C59 122 43 121 35 113"/>
+    <path d="M100 114C92 124 77 119 74 108C70 96 79 84 90 88C99 90 101 98 100 103H79M100 103H112"/>
+   </g>
+   <circle cx="48" cy="53" r="10" fill="currentColor"/><path d="M48 47V59M42 53H54" stroke="var(--paper)" stroke-width="3.5"/>
+   <path d="M81 54H92" stroke="currentColor" stroke-width="3.5"/><circle cx="29" cy="113" r="3.4" fill="currentColor"/>
+</g>
+  </symbol>
+  <symbol id="i-warehouse" viewBox="0 0 100 100">
+   <g fill="currentColor">
+    <circle cx="43" cy="10" r="5"/><circle cx="55" cy="10" r="5"/><circle cx="67" cy="10" r="5"/>
+    <circle cx="37" cy="21" r="5"/><circle cx="49" cy="21" r="5"/><circle cx="61" cy="21" r="5"/><circle cx="73" cy="21" r="5"/>
+    <circle cx="31" cy="32" r="5"/><circle cx="55" cy="32" r="5"/>
+    <circle cx="25" cy="43" r="5"/><circle cx="49" cy="43" r="5"/><circle cx="61" cy="43" r="5"/><circle cx="73" cy="43" r="5"/>
+    <circle cx="25" cy="54" r="5"/><circle cx="49" cy="54" r="5"/><circle cx="61" cy="54" r="5"/><circle cx="73" cy="54" r="5"/><circle cx="85" cy="54" r="5"/>
+    <circle cx="31" cy="65" r="5"/><circle cx="43" cy="65" r="5"/><circle cx="55" cy="65" r="5"/><circle cx="67" cy="65" r="5"/><circle cx="79" cy="65" r="5"/>
+    <circle cx="49" cy="76" r="5"/><circle cx="61" cy="76" r="5"/><circle cx="73" cy="76" r="5"/>
+    <circle cx="55" cy="87" r="5"/><circle cx="67" cy="87" r="5"/>
+   </g>
+   <circle cx="79" cy="32" r="4.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  </symbol>
+
+  <!-- Night variants observed in the official Tianxiang animated announcement. -->
+  <linearGradient id="night-ivory" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#eeefd6"/><stop offset=".32" stop-color="#e4e7cd"/><stop offset=".66" stop-color="#d5d8bf"/><stop offset="1" stop-color="#e4dfc6"/></linearGradient>
+  <radialGradient id="night-mission-glass" cx="36%" cy="23%" r="82%"><stop stop-color="#f4f4d8"/><stop offset=".4" stop-color="#dfe2be"/><stop offset=".73" stop-color="#b9bca0"/><stop offset="1" stop-color="#858d80"/></radialGradient>
+  <symbol id="i-squad-night" viewBox="0 0 160 128">
+   <path d="M65 40C59 34 51 31 43 31C24 31 12 46 12 64C12 83 25 98 44 98C66 98 75 81 81 63S95 30 116 30C135 30 148 45 148 64C148 83 135 98 116 98C107 98 100 95 93 89" fill="none" stroke="url(#night-ivory)" stroke-width="20" mask="url(#squad-channels)"/>
+   <circle cx="43" cy="64" r="12.5" fill="#101411" stroke="url(#night-ivory)" stroke-width="2.5"/><path d="M116 51.5A12.5 12.5 0 0 0 116 76.5Z" fill="#101411" stroke="#d9ddbe" stroke-width="1.2"/>
+   <path class="ambient-loop squad-signal" d="M44 98C69 98 75 80 80 62S92 29 116 29" fill="none" stroke="#ffffe9" stroke-width="1.8" pathLength="100" stroke-dasharray="12 88"/>
+   <circle cx="150" cy="23" r="5" fill="#f9f8de"/>
+  </symbol>
+  <symbol id="i-operator-night" viewBox="0 0 120 120">
+   <path d="M94 28A47 47 0 1 0 107 60" fill="none" stroke="url(#night-ivory)" stroke-width="10"/>
+   <path d="M100 60A40 40 0 0 1 60 100" fill="none" stroke="#dce3c4" stroke-width="2.5"/>
+   <circle cx="60" cy="60" r="21" fill="#0b100d" stroke="url(#night-ivory)" stroke-width="4"/>
+   <path d="M91 60A31 31 0 0 1 60 91" fill="none" stroke="url(#night-ivory)" stroke-width="5"/>
+   <circle class="ambient-loop operator-signal" cx="60" cy="60" r="46" fill="none" stroke="#ffffe9" stroke-width="1.7" pathLength="100" stroke-dasharray="8 92"/>
+   <circle cx="111" cy="37" r="5.2" fill="#ffffe4"/>
+  </symbol>
+  <symbol id="i-store-night" viewBox="0 0 120 120">
+   <path d="M76 16A46 46 0 1 0 76 104M77 32A30 30 0 1 0 77 88" fill="none" stroke="currentColor" stroke-width="7"/>
+   <path d="M68 44A17 17 0 0 0 68 78M71 44V78" fill="none" stroke="currentColor" stroke-width="5"/>
+   <path d="M29 101H17V111M85 20H95M84 103H94" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+  <symbol id="i-mission-night" viewBox="0 0 120 128">
+   <ellipse cx="60" cy="65" rx="51" ry="57" fill="url(#night-mission-glass)"/>
+   <use href="#i-mission" x="10" y="7" width="104" height="111" color="#101510"/>
+   <path d="M27 27C34 17 44 11 55 10" fill="none" stroke="#fffde7" stroke-opacity=".56" stroke-width="1.2"/>
+  </symbol>
+  <symbol id="i-base-night" viewBox="0 0 128 144">
+   <path d="M64 6L108 31Q112 33 112 38V106Q112 110 108 112L68 136Q64 139 60 136L20 112Q16 110 16 106V38Q16 33 20 31Z" fill="#0d130f" stroke="url(#night-ivory)" stroke-width="2.8"/>
+   <g fill="none" stroke="url(#night-ivory)" stroke-width="8" stroke-linejoin="round">
+    <path d="M35 24V65M35 51C35 36 48 33 58 42L79 63C89 72 99 64 97 50C95 34 80 35 71 48L58 64C47 77 35 65 35 51ZM98 50V73"/>
+    <path d="M59 88C49 80 35 85 36 94C37 102 61 102 60 111C59 122 43 121 35 113"/>
+    <path d="M100 114C92 124 77 119 74 108C70 96 79 84 90 88C99 90 101 98 100 103H79M100 103H112"/>
+   </g>
+   <circle cx="48" cy="53" r="10" fill="#0d130f"/><path d="M48 47V59M42 53H54" stroke="#edead0" stroke-width="3.5"/>
+   <path d="M81 54H92" stroke="#0d130f" stroke-width="3.5"/><circle cx="29" cy="113" r="3.4" fill="#edead0"/>
+  </symbol>
+  <symbol id="i-book-night" viewBox="0 0 100 100"><path d="M18 31H78V70H18ZM29 23H86V62" fill="none" stroke="currentColor" stroke-width="4"/></symbol>
+
+</defs></svg>
+<svg class="svg-library" aria-hidden="true"><defs>
+<symbol id="i-sun" viewBox="0 0 100 100"><circle cx="50" cy="50" r="21" fill="none" stroke="currentColor" stroke-width="7"/><path d="M50 6v13m0 62v13M6 50h13m62 0h13M19 19l9 9m44 44 9 9M19 81l9-9m44-44 9-9" fill="none" stroke="currentColor" stroke-width="5"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 100 100"><path d="M27 73C-1 70 5 35 30 39 38 6 80 17 78 42c31 1 28 34 3 34H28" fill="none" stroke="currentColor" stroke-width="6"/></symbol>
+<symbol id="i-rain" viewBox="0 0 100 100"><path d="M25 57C1 56 8 29 28 32 39 3 74 13 73 34c24 0 27 24 3 27H26M30 70l-6 15m30-15-6 15m30-15-6 15" fill="none" stroke="currentColor" stroke-width="6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-code" viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="65 15"/><path d="m38 36-16 14 16 14m24-28 16 14-16 14m-7-35-10 42" fill="none" stroke="currentColor" stroke-width="7"/></symbol>
+<symbol id="i-book" viewBox="0 0 100 100"><circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="8"/><path d="M27 31h18l5 5 5-5h18v37H55l-5 5-5-5H27zm23 5v34" fill="none" stroke="currentColor" stroke-width="5"/></symbol>
+<symbol id="i-play" viewBox="0 0 100 100"><circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="13" stroke-dasharray="187 46"/><path d="m40 31 29 19-29 19z" fill="currentColor"/></symbol>
+</defs></svg>
+
+<div class="scenery" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
+<main id="viewport" aria-label="孤星浏览器主页"><div class="stage" id="stage">
+<section class="home-assistant" id="home-assistant" aria-label="助理 阿米娅" hidden>
+ <div class="assistant-art"><canvas id="assistant-canvas" role="img" aria-label="阿米娅，寰宇独奏动态立绘" hidden></canvas><img id="assistant-fallback" data-src="assets/amiya/portrait.png" alt="阿米娅，寰宇独奏立绘" hidden><button class="assistant-touch" data-action="assistant-interact" aria-label="轻触阿米娅，播放互动动作" title="轻触阿米娅" disabled></button></div>
+ <span id="assistant-status" role="status" hidden></span>
+ <div class="assistant-caption"><span class="assistant-name"><b>AMIYA</b><small>阿米娅 · 寰宇独奏</small></span><div class="assistant-actions"><button type="button" data-action="assistant-scene" aria-label="隐藏皮肤背景与动效" aria-pressed="true" title="隐藏皮肤背景与动效">背景</button><button type="button" data-action="assistant-interact" aria-label="与阿米娅互动" title="与阿米娅互动" disabled>互动</button><button type="button" data-action="assistant-motion" aria-label="暂停立绘动作" aria-pressed="true">Ⅱ</button></div></div>
+</section>
+<div class="left-ui">
+<nav class="quick-menu" aria-label="主页菜单">
+ <button data-open="settings" aria-label="主页设置" title="设置"><svg viewBox="0 0 64 64"><path fill="currentColor" d="m27 3-3 8-8 4-9-1-5 10 6 7-1 9-5 6 7 9 9-2 7 4 3 8h11l3-8 8-4 8 1 5-10-6-7 1-9 5-6-7-9-8 2-8-4-2-8z"/><circle cx="32" cy="33" r="12" fill="#6e777b"/></svg></button>
+ <button data-open="help" aria-label="使用指南" title="使用指南"><svg viewBox="0 0 64 64"><path d="M32 3 62 57H2z" fill="currentColor"/><path d="M30 21h5v20h-5zm0 26h5v5h-5z" fill="#69747c"/></svg></button>
+ <a class="service-link" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌邮箱 Gmail" title="谷歌邮箱 · Gmail"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M2 11h60v44H2z" fill="currentColor"/><path d="m7 16 25 19 25-19" fill="none" stroke="#69747c" stroke-width="4"/></svg></a>
+ <button data-open="todos" aria-label="今日待办" title="今日待办"><svg viewBox="0 0 64 64"><path d="M5 12h54v46H5zM17 6v13m30-13v13M5 25h54" fill="none" stroke="currentColor" stroke-width="5"/><path d="M15 34h7m7 0h7m7 0h7M15 45h7m7 0h7m7 0h7" stroke="currentColor" stroke-width="6"/></svg></button>
+</nav>
+<button class="daily-tab" data-open="todos"><span>☑</span><span>新的一页<br>今日计划</span></button>
+<section class="identity" aria-label="本地时间"><div class="identity-ring" aria-hidden="true"></div><time id="clock" class="clock">00:00</time><span class="local-time">LOCAL TIME</span><p id="greeting">你好，博士。</p><span id="time-zone"></span><time id="date" class="identity-date"></time></section>
+<div class="scene-controls"><button data-action="hide-interface" aria-label="欣赏背景" title="欣赏背景">◉</button><button data-action="background" aria-label="切换昼夜背景" title="切换昼夜背景">⟳</button></div>
+<section class="notes-dock" aria-label="随手记"><div class="note-ribbon">QUICK NOTE</div><textarea id="note" rows="2" maxlength="12000" placeholder="记下一闪而过的想法，博士。" aria-label="随手记内容" spellcheck="false"></textarea><div class="notes-bottom"><span id="note-status" role="status">仅保存在此设备</span><span id="note-count">0 / 12000</span><button data-action="copy-note" aria-label="复制便签">复制 ↗</button></div></section>
+<button class="scenery-card" data-action="background" aria-label="切换主页场景"><span class="breaking">DAILY DEPARTURE</span><span class="scenery-title">LONE<br>STAR</span><span class="scenery-bar" id="scene-title">天光 / OBSERVATORY</span></button>
+<button class="left-mini paper" data-open="help"><svg aria-hidden="true"><use href="#i-squad" data-theme-icon="squad"/></svg><b>Guide</b><span>指南</span></button><a class="left-mini dark-paper archives service-link" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="谷歌翻译 Google Translate" title="谷歌翻译"><svg aria-hidden="true"><use href="#i-book" data-theme-icon="book"/></svg><b>Translate</b><span>谷歌翻译</span></a>
+</div>
+<section class="right-ui" aria-label="主页功能">
+ <section class="terminal paper plane" data-plane="1216,146 2050,92 2050,354 1214,366" data-size="834,270" aria-label="搜索与专注">
+  <div class="search-content"><h1 class="sr-only">网页搜索</h1><span class="terminal-line" aria-hidden="true"></span><div class="engines" role="group" aria-label="搜索引擎"><button data-engine="bing" aria-pressed="true">Bing</button><button data-engine="google">Google</button><button data-engine="baidu">百度</button><button data-engine="duckduckgo" title="DuckDuckGo">Duck</button></div><form id="search-form" action="https://www.bing.com/search" method="get" target="_blank" rel="noopener noreferrer"><label class="sr-only" for="search-input">搜索或输入网址</label><input id="search-input" name="q" placeholder="搜索或输入网址" autocomplete="off" spellcheck="false" required maxlength="1000"><button type="submit" aria-label="开始搜索">↗</button></form><div class="terminal-status"><b>· 搜索 ·</b><span>向未知出发</span></div><div id="recent-searches" class="recent-searches" hidden></div></div>
+  <button class="sanity-dial" id="focus-toggle" aria-label="开始专注"><svg class="focus-instrument" viewBox="0 0 230 270" aria-hidden="true">
+   <defs>
+    <linearGradient id="dial-rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffcf0"/><stop offset=".38" stop-color="#e2e0d5"/><stop offset=".7" stop-color="#a5aaa1"/><stop offset="1" stop-color="#f5f3db"/></linearGradient>
+    <radialGradient id="dial-face" cx="35%" cy="32%" r="78%"><stop stop-color="#171b1b"/><stop offset=".55" stop-color="#080c0d"/><stop offset="1" stop-color="#020405"/></radialGradient>
+    <linearGradient id="dial-jade" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ccd747"/><stop offset=".5" stop-color="#78b99a"/><stop offset="1" stop-color="#77d4c3"/></linearGradient>
+    <linearGradient id="dial-violet" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#b2bc79"/><stop offset=".5" stop-color="#77768c"/><stop offset="1" stop-color="#68617e"/></linearGradient>
+    <linearGradient id="dial-orbit-ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0e5dc" stop-opacity=".6"/><stop offset=".35" stop-color="#747e77" stop-opacity=".38"/><stop offset=".73" stop-color="#37413c" stop-opacity=".18"/><stop offset="1" stop-color="#b5c0b3" stop-opacity=".45"/></linearGradient>
+    <radialGradient id="dial-flare"><stop stop-color="#f6ffed" stop-opacity=".94"/><stop offset=".15" stop-color="#e4f2e3" stop-opacity=".6"/><stop offset=".4" stop-color="#b8d3c8" stop-opacity=".19"/><stop offset="1" stop-color="#8baca4" stop-opacity="0"/></radialGradient>
+    <radialGradient id="planet-body" cx="28%" cy="24%" r="84%"><stop stop-color="#464b49"/><stop offset=".35" stop-color="#292d2b"/><stop offset=".7" stop-color="#0c100f"/><stop offset="1" stop-color="#030605"/></radialGradient>
+    <radialGradient id="planet-light" cx="28%" cy="16%" r="74%"><stop stop-color="#a7aaa1" stop-opacity=".26"/><stop offset=".3" stop-color="#969c95" stop-opacity=".12"/><stop offset=".75" stop-color="#727b73" stop-opacity="0"/></radialGradient>
+    <radialGradient id="planet-night" cx="82%" cy="64%" r="70%"><stop stop-color="#000" stop-opacity=".94"/><stop offset=".5" stop-color="#000" stop-opacity=".7"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="dial-glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dce8df" stop-opacity=".065"/><stop offset=".48" stop-color="#dde6df" stop-opacity="0"/><stop offset="1" stop-color="#8ea695" stop-opacity=".03"/></linearGradient>
+    <filter id="dial-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="2" seed="17" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".18"/></feComponentTransfer></filter>
+    <clipPath id="dial-face-clip"><ellipse cx="115" cy="135" rx="103" ry="126"/></clipPath>
+    <clipPath id="dial-planet-clip"><ellipse cx="153" cy="170" rx="34" ry="46" transform="rotate(25 153 170)"/></clipPath>
+    <mask id="dial-progress-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="230" height="270"><path id="focus-progress" pathLength="100" stroke-dasharray="100" d="M21.000 136.000A94 112 0 0 0 209.000 136.000" fill="none" stroke="#fff" stroke-width="16"/></mask>
+   </defs>
+   <ellipse cx="115" cy="135" rx="108" ry="131" fill="#4b514a"/>
+   <ellipse cx="115" cy="135" rx="106.5" ry="129.5" fill="url(#dial-face)" stroke="url(#dial-rim)" stroke-width="4.5"/>
+   <ellipse cx="115" cy="135" rx="103.7" ry="126.7" fill="none" stroke="#a7b0a1" stroke-opacity=".56" stroke-width=".8"/>
+   <g clip-path="url(#dial-face-clip)">
+    <rect x="11" y="8" width="208" height="254" filter="url(#dial-grain)" opacity=".27"/>
+    <g class="dial-dust" fill="#d0d4c8"><circle cx="143.00" cy="135.00" r=".7" opacity=".5"/><circle cx="72.97" cy="178.51" r=".35" opacity=".25"/><circle cx="122.52" cy="38.19" r=".35" opacity=".25"/><circle cx="143.60" cy="177.15" r=".35" opacity=".5"/><circle cx="40.16" cy="120.04" r=".35" opacity=".25"/><circle cx="146.22" cy="112.56" r=".35" opacity=".25"/><circle cx="97.87" cy="207.02" r=".35" opacity=".5"/><circle cx="71.21" cy="39.73" r=".7" opacity=".25"/><circle cx="167.60" cy="156.71" r=".35" opacity=".25"/><circle cx="36.43" cy="171.65" r=".35" opacity=".5"/><circle cx="134.50" cy="87.92" r=".35" opacity=".25"/><circle cx="137.45" cy="215.87" r=".35" opacity=".25"/><circle cx="83.85" cy="114.60" r=".35" opacity=".5"/><circle cx="178.48" cy="119.23" r=".35" opacity=".25"/><circle cx="60.94" cy="221.89" r=".7" opacity=".25"/><circle cx="107.93" cy="73.37" r=".35" opacity=".5"/><circle cx="179.23" cy="196.17" r=".35" opacity=".25"/><circle cx="70.04" cy="137.10" r=".35" opacity=".25"/><circle cx="167.45" cy="76.02" r=".35" opacity=".5"/><circle cx="113.38" cy="174.51" r=".35" opacity=".25"/><circle cx="73.99" cy="79.47" r=".35" opacity=".25"/><circle cx="207.17" cy="149.01" r=".7" opacity=".5"/><circle cx="70.67" cy="169.85" r=".35" opacity=".25"/><circle cx="133.22" cy="43.50" r=".35" opacity=".25"/><circle cx="136.88" cy="178.14" r=".35" opacity=".5"/><circle cx="45.45" cy="109.93" r=".35" opacity=".25"/><circle cx="145.86" cy="118.89" r=".35" opacity=".25"/><circle cx="90.68" cy="200.67" r=".35" opacity=".5"/><circle cx="83.86" cy="37.18" r=".7" opacity=".25"/><circle cx="161.92" cy="162.86" r=".35" opacity=".25"/><circle cx="35.71" cy="158.62" r=".35" opacity=".5"/><circle cx="138.26" cy="94.13" r=".35" opacity=".25"/><circle cx="127.20" cy="215.18" r=".35" opacity=".25"/><circle cx="88.91" cy="112.17" r=".35" opacity=".5"/><circle cx="176.79" cy="129.21" r=".35" opacity=".25"/><circle cx="53.20" cy="210.48" r=".7" opacity=".25"/><circle cx="115.25" cy="76.24" r=".35" opacity=".5"/><circle cx="169.42" cy="202.79" r=".35" opacity=".25"/><circle cx="73.18" cy="130.62" r=".35" opacity=".25"/><circle cx="171.56" cy="86.50" r=".35" opacity=".5"/></g>
+    <g transform="translate(115 140)">
+     <g class="ambient-loop dial-orbit-plane orbit-plane-outer"><ellipse rx="63" ry="78" fill="none" stroke="url(#dial-orbit-ink)" stroke-width="1.05"/><ellipse class="ambient-loop dial-orbit-trace" rx="63" ry="78" pathLength="100" fill="none" stroke="#c9d9c9" stroke-opacity=".5" stroke-width="1.1" stroke-dasharray="9 91"/></g>
+     <g class="ambient-loop dial-orbit-plane orbit-plane-middle"><ellipse rx="47" ry="60" fill="none" stroke="url(#dial-orbit-ink)" stroke-width=".85"/><ellipse class="ambient-loop dial-orbit-satellite" rx="47" ry="60" pathLength="100" fill="none" stroke="#d8e1d2" stroke-width="2.5" stroke-linecap="round" stroke-dasharray=".01 99.99"/></g>
+     <g class="ambient-loop dial-orbit-plane orbit-plane-inner"><ellipse rx="30" ry="41" fill="none" stroke="url(#dial-orbit-ink)" stroke-width=".9"/></g>
+     <ellipse rx="17" ry="22" fill="none" stroke="#869087" stroke-width=".8" stroke-opacity=".6"/>
+     <path d="M-9 0H9M0-9V9" fill="none" stroke="#c8cec4" stroke-width="1.7"/>
+    </g>
+    <g class="dial-index" fill="none" stroke="#d6dacd"><ellipse cx="115" cy="135" rx="91" ry="112" pathLength="360" stroke-width="1.5" stroke-dasharray=".5 14.5" opacity=".24"/><path d="M115 27V34M115 236V243M24 135H30M200 135H207" stroke-width="2" opacity=".84"/><path d="M55 52l3 5M175 52l-3 5M36 90l4 2M194 90l-4 2" stroke-width="1.2" opacity=".58"/></g>
+    <path d="M21.000 136.000A94 112 0 0 0 209.000 136.000" fill="none" stroke="#969579" stroke-opacity=".13" stroke-width="11"/>
+    <g mask="url(#dial-progress-mask)" fill="none">
+     <g stroke-width="10.8"><path d="M21.000 136.000A94 112 0 0 0 44.057 209.479" stroke="#d82722"/>
+    <path d="M44.057 209.479A94 112 0 0 0 54.578 221.797" stroke="#e45a25"/>
+    <path d="M54.578 221.797A94 112 0 0 0 168.916 227.745" stroke="#e4d42b"/>
+    <path d="M168.916 227.745A94 112 0 0 0 198.755 186.847" stroke="url(#dial-jade)"/>
+    <path d="M198.755 186.847A94 112 0 0 0 209.000 136.000" stroke="url(#dial-violet)"/></g>
+     <path d="M166.137 221.756A87 106 0 0 0 202.000 136.000" stroke="url(#dial-jade)" stroke-width="3.4" opacity=".66"/>
+     <path class="ambient-loop dial-spectrum-glint" d="M21.000 136.000A94 112 0 0 0 209.000 136.000" pathLength="100" stroke="#f7f4c6" stroke-opacity=".36" stroke-width="10.5" stroke-dasharray=".3 99.7"/>
+    </g>
+    <g clip-path="url(#dial-planet-clip)">
+     <ellipse cx="153" cy="170" rx="34" ry="46" transform="rotate(25 153 170)" fill="url(#planet-body)"/>
+     <rect x="108" y="119" width="91" height="103" filter="url(#dial-grain)" opacity=".7"/>
+     <ellipse class="ambient-loop dial-planet-light" cx="153" cy="166" rx="41" ry="52" fill="url(#planet-light)"/>
+     <ellipse class="ambient-loop dial-terminator" cx="159" cy="174" rx="46" ry="58" fill="url(#planet-night)"/>
+    </g>
+    <path d="M124 159C127 142 140 128 153 126" fill="none" stroke="#b5bcb0" stroke-opacity=".15" stroke-width=".6"/>
+    <g class="ambient-loop dial-caustic"><ellipse cx="48" cy="104" rx="17" ry="32" transform="rotate(23 48 104)" fill="url(#dial-flare)"/><ellipse cx="49" cy="101" rx="3.4" ry="10" transform="rotate(23 49 101)" fill="url(#dial-flare)"/></g>
+    <path class="ambient-loop dial-edge-glint" d="M23 112C23 73 48 31 78 21" pathLength="100" fill="none" stroke="#dcebdc" stroke-width="1.3" stroke-opacity=".35" stroke-dasharray="14 86"/>
+    <ellipse cx="115" cy="135" rx="102" ry="125" fill="url(#dial-glass)"/>
+   </g>
+   <g class="dial-night-index" fill="#f4f4df"><path d="M115 0L118 7L115 14L112 7ZM115 256L118 263L115 270L112 263Z"/><path d="M108 7H122M108 263H122" stroke="#f4f4df" stroke-width=".6"/></g>
+  </svg><strong class="sanity-number" id="focus-minutes">25</strong><span class="sanity-caption">/ FOCUS /<b id="focus-time">25:00</b></span><span id="focus-state">▶ 开始专注</span></button><button class="dial-plus" data-action="reset-focus" aria-label="重置专注计时" title="重置专注计时">↺</button>
+  <div class="event-banners" id="featured-links" aria-label="快捷网站"></div>
+ </section>
+ <div id="shortcut-grid"></div>
+ <button class="empty-slot plane" data-plane="1901,381 2070,380 2070,552 1901,547" data-size="169,171" data-open="add-link" aria-label="添加快捷网站"><span>+</span><small>添加网站</small></button>
+ <button class="store-tile dark-paper plane" data-surface-rect="50.3964,0,269.7545,167" data-size="250,157" data-open="bookmarks"><span class="project">Pioneer Project</span><span class="dark-orbit"><svg aria-hidden="true"><use href="#i-store" data-theme-icon="store"/></svg></span><strong>LINKS</strong><span class="store-label">网站收藏</span></button>
+ <section class="recruitment dark-paper plane" data-surface-rect="339.185,0,430.815,167" data-size="464,175" aria-label="主页管理"><div class="recruitment-header"><b>Management</b><span>▸ HOME</span><span>HISTORY</span><span>APPEARANCE</span></div><button data-open="history" class="recruit-choice"><span class="dark-orbit"><svg class="ambient-loop mechanism-rotor" aria-hidden="true"><use href="#i-recruit"/></svg></span><span>搜索记录</span></button><button data-open="settings" class="recruit-choice headhunt"><span class="dark-orbit"><svg aria-hidden="true"><use href="#i-headhunt"/></svg></span><span>个性设置</span></button></section>
+ <button class="tile paper plane mission-tile" data-surface-rect="0,191.7,304.8058,160" data-size="275,145" data-open="todos" aria-label="今日待办"><span class="tile-title" data-title="Mission" aria-label="Mission">Mission</span><span class="project">Pioneer Project</span><span class="tile-label">待办<i></i></span><span class="orbit"><svg aria-hidden="true"><use href="#i-mission" data-theme-icon="mission"/></svg></span><span class="edge-mark" aria-hidden="true">≡</span><span id="mission-summary" class="tile-status"></span></button>
+ <button class="tile paper plane base-tile weather-tile" data-surface-rect="324.664,191.7,298.2725,160" data-size="310,155" data-open="weather-info" aria-label="查看天气"><span class="tile-title" data-title="Weather" aria-label="Weather">Weather</span><span class="project">Pioneer Project</span><span class="tile-label">天气<i></i></span><span class="orbit"><svg aria-hidden="true"><use href="#i-base" data-theme-icon="base"/></svg></span><span class="edge-mark" aria-hidden="true">≡</span></button>
+ <button class="base-badge plane" data-surface-rect="511.1825,159.7,116.2848,39" data-size="128,42" data-open="weather-info" aria-label="当地天气"><span class="ambient-loop weather-sun">☀</span><b id="weather-badge">—°</b></button>
+ <button class="warehouse dark-paper plane" data-surface-rect="623.8434,191.7,121.5106,160" data-size="140,162" data-action="note" aria-label="编辑随手记"><svg class="ambient-loop note-constellation" aria-hidden="true"><use href="#i-warehouse"/></svg><span>便签</span></button>
+</section></div></main>
+<button class="restore-interface" data-action="hide-interface" hidden>返回主页</button>
+<dialog id="workspace-modal" aria-labelledby="workspace-title"><div class="modal-shell"><header class="modal-heading"><div><p>PIONEER PROJECT</p><h2 id="workspace-title">今日待办</h2></div><button class="modal-close" data-action="close-workspace" aria-label="关闭工具">×</button></header><div class="workspace-body"><section id="todo-workspace"><p id="todo-count" class="workspace-stat">今日待办</p><ul id="todo-list" class="todo-list"></ul><form id="todo-form" class="todo-form"><span>＋</span><input id="todo-input" aria-label="添加待办" placeholder="添加一件想完成的事" maxlength="120" required autocomplete="off"><button type="submit" aria-label="确认添加待办">↵</button></form><button id="clear-completed" class="clear-completed" data-action="clear-completed" hidden>清理已完成</button></section><section id="weather-workspace" hidden><div id="weather-content" class="weather-content"></div><div class="form-actions"><button class="action-button" data-open="weather">设置天气城市</button></div></section></div><footer class="modal-footer"><span>LONE STAR / PERSONAL SPACE</span></footer></div></dialog>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-shell"><header class="modal-heading"><div><p id="modal-kicker">PIONEER PROJECT</p><h2 id="modal-title"></h2></div><button id="modal-close" class="modal-close" aria-label="关闭弹窗">×</button></header><div id="modal-body"></div><footer class="modal-footer"><span>LONE STAR / PERSONAL SPACE</span><span>在这里，开始新的一页。</span></footer></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><input type="file" id="import-file" accept="application/json,.json" hidden>
+</body></html>

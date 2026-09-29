@@ -1,0 +1,11 @@
+title = "Lone Star source secret scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Verified DER SPKI RSA public key used only for Chrome extension identity"
+condition = "AND"
+paths = ['''^(?:extension|build/chrome-extension)/manifest\.json$''']
+regexTarget = "secret"
+regexes = ['''^MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqloa55CEMNTVpYNXuQV4YBWYfZl3QbxeYOuif4u08dGMSxR3oYyR57e6KOJXdYNun2sorD0hqeioFx5IdYU7WIhpU6I7xkjV3gSlVWqdRwujH3BWuXDtfur5Cslvi2qgNJXf\+femS2vmmbHR9T/aHTPnuUcot7fz5qhcAoTPi5Fqd21f96Tp5fMZJfNKNKU27MOBED1gwVb6xj2g\+ldkDm2SNHtaQ1\+owSy60hpkzdehTRAAR3n9lkwLJLCGSPsuXncTdg/GViThUVwVqUs5mx6PLZc0ysILb/L37YMECmnyu3uKguv9KIWTgL20wVm4yZD3ZFq3slHtZZZzB5oXVwIDAQAB$''']

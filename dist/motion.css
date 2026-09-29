@@ -1,0 +1,67 @@
+/* Tianxiang / Star Trail observation study. Geometry and readable type stay fixed.
+   Every loop shares a pause state; no continuously running JS renderer. */
+:root{--ambient-play:running}
+.ambient-loop{animation-play-state:var(--ambient-play)!important}
+
+/* Independent orbital planes; the foreground globe occludes the back arcs. */
+.dial-orbit-plane{transform-box:view-box;transform-origin:0 0}
+.orbit-plane-outer{animation:orbital-precession 18s linear infinite;animation-delay:-2s}
+.orbit-plane-middle{animation:orbital-precession 14s linear infinite reverse;animation-delay:-5s}
+.orbit-plane-inner{animation:orbital-precession 11s linear infinite;animation-delay:-8s}
+.dial-orbit-trace{animation:orbital-trace 12s linear infinite}
+.dial-orbit-satellite{animation:orbital-trace 9s linear infinite reverse;animation-delay:-3s}
+.dial-spectrum-glint{animation:spectrum-travel 15s linear infinite;animation-delay:-4s}
+.dial-planet-light{animation:planet-light-travel 17s ease-in-out infinite}
+.dial-terminator{animation:terminator-travel 17s ease-in-out infinite}
+.dial-caustic{animation:glass-caustic 13s ease-in-out infinite;animation-delay:-2s}
+.dial-edge-glint{animation:edge-reflection 13s ease-in-out infinite;animation-delay:-2s}
+@keyframes orbital-precession{
+ 0%{transform:rotate(-12deg) scaleX(.96)}
+ 25%{transform:rotate(4deg) scaleX(.48)}
+ 50%{transform:rotate(13deg) scaleX(.15)}
+ 75%{transform:rotate(-3deg) scaleX(.62)}
+ 100%{transform:rotate(-12deg) scaleX(.96)}
+}
+@keyframes orbital-trace{to{stroke-dashoffset:-100}}
+@keyframes spectrum-travel{0%,12%{stroke-dashoffset:0;opacity:0}18%{opacity:.75}85%{opacity:.55}94%,100%{stroke-dashoffset:-100;opacity:0}}
+@keyframes planet-light-travel{0%,100%{transform:translate(-5px,-3px);opacity:.75}50%{transform:translate(5px,2px);opacity:1}}
+@keyframes terminator-travel{0%,100%{transform:translate(4px,1px)}50%{transform:translate(-7px,-2px)}}
+@keyframes glass-caustic{0%,100%{transform:translate(0,0);opacity:.84}32%{transform:translate(-6px,10px);opacity:.56}67%{transform:translate(4px,-7px);opacity:1}}
+@keyframes edge-reflection{0%,100%{stroke-dashoffset:0;opacity:.6}50%{stroke-dashoffset:-48;opacity:.2}}
+
+/* Ink light follows the channels, independently from the icon silhouette. */
+.squad-signal{opacity:.78;animation:channel-sweep 8s linear infinite;animation-delay:-1s}
+.operator-signal{opacity:.72;animation:channel-sweep 10s linear infinite reverse;animation-delay:-4s}
+@keyframes channel-sweep{0%,14%{stroke-dashoffset:14;opacity:0}20%,70%{opacity:.8}88%,100%{stroke-dashoffset:-100;opacity:0}}
+.shortcut-card .orbit::after{
+ content:"";position:absolute;inset:7%;border-radius:50%;pointer-events:none;
+ border:1px solid transparent;border-top-color:rgba(192,132,61,.28);border-right-color:rgba(192,132,61,.07);
+ animation:orbit-revolve 26s linear infinite;animation-play-state:var(--ambient-play);
+}
+.shortcut-card.primary-1 .orbit::after{animation-duration:34s;animation-direction:reverse;animation-delay:-12s}
+.base-fill-phase{opacity:0;animation:printed-inversion 14s ease-in-out infinite;animation-delay:-3s}
+@keyframes printed-inversion{0%,30%,100%{opacity:0}41%,59%{opacity:1}71%{opacity:0}}
+
+/* Separate mechanical assemblies and their phased ring illumination. */
+.mechanism-rotor{transform-origin:center;animation:orbit-revolve 18s linear infinite}
+.headhunt-rings,.headhunt-pointer{transform-box:view-box;transform-origin:60px 60px}
+.headhunt-rings{animation:orbit-revolve 28s linear infinite reverse}
+.headhunt-pointer{animation:pointer-index 12s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes pointer-index{0%,12%{transform:rotate(0)}32%,45%{transform:rotate(120deg)}65%,78%{transform:rotate(240deg)}100%{transform:rotate(360deg)}}
+.dark-orbit::before{animation:mechanism-halo 8s ease-in-out infinite;animation-play-state:var(--ambient-play)}
+.headhunt .dark-orbit::before{animation-delay:-3.4s}
+.store-tile .dark-orbit::before{animation-delay:-6s;animation-duration:11s}
+@keyframes mechanism-halo{0%,100%{transform:scale(.94);opacity:.48}50%{transform:scale(1.12);opacity:1}}
+.weather-sun{display:inline-block;transform-origin:center;animation:orbit-revolve 72s linear infinite}
+.note-constellation{animation:constellation-breathe 9s ease-in-out infinite;animation-delay:-2s}
+@keyframes orbit-revolve{from{rotate:0deg}to{rotate:360deg}}
+@keyframes constellation-breathe{0%,100%{opacity:.72}50%{opacity:1}}
+
+body.motion-paused,body:has(dialog[open]),body:has(#search-input:focus,#note:focus){--ambient-play:paused}
+.recruit-choice:is(:hover,:focus-visible){--ambient-play:paused}
+body.reduce-motion .ambient-loop,
+body.reduce-motion .shortcut-card .orbit::after,
+body.reduce-motion .dark-orbit::before{animation:none!important}
+@media(prefers-reduced-motion:reduce){
+ .ambient-loop,.shortcut-card .orbit::after,.dark-orbit::before{animation:none!important}
+}
